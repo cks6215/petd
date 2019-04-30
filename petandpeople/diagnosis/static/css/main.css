@@ -1,0 +1,155 @@
+body{
+    background-color: #ECC7B8;
+}
+
+nav{
+    min-height: 40px !important;
+    background-color: inherit !important;
+}
+
+.eventTextBox{
+    padding: 1rem;
+    text-align: center;
+}
+
+.eventText{
+    margin: 0;
+    font-size: 1.5rem;
+    color: #595959;
+}
+
+.navButton{
+    border: none;
+    width: 12rem;
+    background-color: #FC5649;
+    opacity: 0.6;
+    color: white;
+    margin: 0.5rem;
+    font-weight: bold;
+}
+
+.navButton:hover, .navButton:focus{
+    background-color: #FC5649;
+}
+
+.mainLogoBox{
+    margin-top: 11%;
+    text-align: center;
+}
+
+.mainLogo{
+    width: 25rem;
+}
+
+.mainText{
+    text-align: center;
+    font-size: 2.2rem;
+    margin-top: 9%;
+    color: #595959;
+}
+
+.mainPageDog{
+    width: 10rem;
+    position: relative;
+    top: 1.2rem;
+    right: 2rem;
+    z-index: 999;
+}
+
+.mainPageHeart{
+    width: 6rem;
+    position: relative;
+    top: 2rem;
+    right: 2rem;
+    z-index: 999;
+}
+
+.mainBannerButton{
+    font-size: 1.8rem;
+    width: 20rem;
+    height: 4.5rem;
+    background-color: #FC5649;
+    opacity: 0.6;
+    color: white;
+    border: none;
+    font-weight: bold;
+    position: relative;
+    right: 1.2rem;
+}
+
+.mainBannerButton:hover, .mainBannerButton:focus{
+    background-color: #FC5649;
+}
+
+
+.mainBanner>.container{
+    text-align: center;
+}
+
+.productBanner{
+    margin-top: 5%;
+    border-top: 1px solid white;
+}
+
+.productBox{
+    margin-top: 1.5%;
+}
+
+.productBoxLeft{
+    text-align: right;
+}
+
+.productBoxRight{
+    text-align: left;
+}
+
+.productImage1, .productImage2{
+    width: 60%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+footer{
+    position: relative;
+    top: 10%;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footerTextBox{
+    padding-top: 4rem;
+}
+
+.socialIconBox{
+    margin-top: 2rem;
+}
+
+.socialIcon{
+    display: inline-block;
+    height: 5rem;
+    width: 5rem;
+    border: 1px solid gray;
+    border-radius: 4px;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1.4rem;
+    margin: 1rem;
+}
+
+.rightBox{
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.footerTextBox>a{
+    color: #333;
+}
+
+.socialIcon>a{
+    color: #333;
+}
+
+.goPhotoUpload{
+    margin-top: 1%;
+}

@@ -1,0 +1,23 @@
+.navbar{
+    background-color: white;
+}
+
+
+.navbar-brand{
+    position: relative;
+    left: 2rem;
+}
+
+
+.navContainer{
+    text-align: center;
+}
+
+.navContainer>.nav{
+    line-height: 7rem;
+}
+
+.navContainer>.nav>li{
+    font-size: 1.8rem;
+    color: gray;
+}

@@ -1,0 +1,108 @@
+{% load static %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="col-md-offset-4 col-md-4 eventTextBox">
+                <!--<p class="eventText">체험판(진단키트) <strong>무료</strong> 이벤트 진행 중입니다.</p>-->
+                <p class="eventText">Let's get <strong>Free Trial</strong> now!</p>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'diagnosis:diagnosis_me' %}"><button class="btn btn-default navButton">Go</button></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mainBanner">
+        <div class="container mainLogoBox">
+            <img class="mainLogo" src="{% static 'img/mainLogo.png' %}" alt="">
+        </div>
+        <div class="container">
+            <!--<p class="mainText">펫과 나의 <strong>건강한</strong> 약속</p>-->
+            <p class="mainText">Healthy Promise of us</p>
+            <div class="container">
+                <img class="mainPageDog" src="{% static 'img/mainPageDog.png' %}" alt="">
+            </div>
+            <div class="container">
+                <!--<a href="{% url 'diagnosis:diagnosis_me' %}"><button class="btn btn-default mainBannerButton">체험판 받으러 가기</button></a>-->
+                <a href="{% url 'diagnosis:diagnosis_me' %}"><button class="btn btn-default mainBannerButton">Free Trial</button></a>
+            </div>
+        </div>
+
+        <div class="container">
+            <!--<div class="container">-->
+            <!--<img class="mainPageHeart" src="{% static 'img/heart.png' %}" alt="">-->
+            <!--</div>-->
+            <div class="container">
+                <!--<a href="{% url 'diagnosis:photo_upload' %}"><button class="btn btn-default mainBannerButton goPhotoUpload">검사 사진 올리기</button></a>-->
+                <a href="{% url 'diagnosis:photo_upload' %}"><button class="btn btn-default mainBannerButton goPhotoUpload">Upload Photo</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="container-fluid productBanner">-->
+    <!--<div class="container productBox productBoxLeft col-md-6">-->
+    <!--<img class="productImage1" src="{% static 'img/item.jpeg' %}" alt="">-->
+    <!--</div>-->
+    <!--<div class="container productBox productBoxRight col-md-6">-->
+    <!--&lt;!&ndash;<img class="productImage2" src="{% static 'img/item.jpeg' %}" alt="">&ndash;&gt;-->
+    <!--</div>-->
+
+    <!--<div class="container productBox productBoxLeft col-md-6">-->
+    <!--&lt;!&ndash;<img class="productImage1" src="{% static 'img/item.jpeg' %}" alt="">&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="container productBox productBoxRight col-md-6">-->
+    <!--<img class="productImage2" src="{% static 'img/item.jpeg' %}" alt="">-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+</header>
+
+<footer>
+    <div class="container-fluid footerContainer">
+        <div class="container footerTextBox">
+            <a href="/"><p>FAQ</p></a>
+            <a href="/"><p>RETURNS</p></a>
+            <a href="/"><p>CONTACT</p></a>
+        </div>
+        <div class="container socialIconBox">
+            <div class="socialIcon facebookIcon">
+                <a href="/"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="socialIcon instagramIcon">
+                <a href="/"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="socialIcon snapchatIcon">
+                <a href="/"><i class="fab fa-snapchat-ghost"></i></a>
+            </div>
+            <div class="socialIcon">
+                <a href="/"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+        <div class="container rightBox">
+            <p>©PuriMedi, Inc.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+    })
+</script>
+
+</body>
+</html>

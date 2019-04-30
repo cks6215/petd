@@ -1,0 +1,137 @@
+.navbar{
+    background-color: white;
+}
+
+
+.navbar-brand{
+    position: relative;
+    left: 2rem;
+}
+
+
+.navContainer{
+    text-align: center;
+}
+
+
+.navContainer>.nav{
+    line-height: 7rem;
+}
+
+
+.navContainer>.nav>li{
+    font-size: 1.8rem;
+    color: gray;
+}
+
+
+input[type=email]{
+    text-align: center;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #FC5649;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    outline: none;
+
+}
+
+input[type=email]:focus{
+    border-bottom-color: red;
+}
+
+#imageUploadForm{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.fadeInputContainer{
+    min-height: 37rem;
+}
+
+.fadeInputBox{
+    display: inline-block;
+    width: 33%;
+    margin-top: 5%;
+}
+
+.fadeInputBox>label{
+    text-align: center;
+    width: 13rem;
+    padding: 1.5rem;
+    border: 1px solid #FC5649;
+    border-radius: 15px;
+    color: gray;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+
+.fadeInputBox>label:hover{
+    color: black;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.fadeInputBox>label:focus{
+    color: black;
+    border-color: red;
+}
+
+
+.fadeInputBox>img{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 12px;
+    margin-top: 1%;
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.dogName{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.continueButtonBox{
+    margin-top: 5%;
+    padding: 5%;
+}
+
+.continueButton{
+    border: none;
+    width: 12rem;
+    background-color: #FC5649;
+    opacity: 0.6;
+    color: white;
+    font-weight: bold;
+}
+
+
+.continueButton:hover{
+    background-color: #FC5649;
+}
+
+.loader {
+    border-radius: 50%;
+    border-top: 4px solid #FC5649;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

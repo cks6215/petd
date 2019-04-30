@@ -1,0 +1,78 @@
+.navContainer>ul>li:nth-child(1){
+    font-weight: bold;
+    color: black;
+}
+
+.formContainer{
+    margin-top: 10%;
+    font-size: 2rem;
+
+}
+
+#zip{
+    width: 30%;
+}
+
+#email{
+    width: 50.7%;
+}
+
+#address{
+    width: 45%;
+}
+
+input[type=text], input[type=email], input[type=number]{
+    text-align: center;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #FC5649;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    outline: none;
+    background-color: inherit;
+
+}
+
+input[type=number]{
+    width: 8%;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=number]:focus{
+    border-bottom-color: red;
+}
+
+.userInfoBox{
+    text-align: center;
+}
+
+.userInfoBox>label{
+    width: 50%;
+    text-align: left;
+    margin-left: 15%;
+}
+
+.continueButtonBox{
+    margin-top: 4rem;
+    height: 15rem;
+}
+
+.continueButton{
+    font-size: 1.5rem;
+    border: none;
+    background-color: #FC5649;
+    opacity: 0.6;
+    color: white;
+    width: 10rem;
+    height: 4rem;
+}
+
+.continueButton:hover{
+    background-color: #FC5649;
+    opacity: 0.6;
+}

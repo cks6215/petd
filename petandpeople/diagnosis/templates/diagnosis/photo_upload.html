@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/photo_upload.css' %}">
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'diagnosis:main' %}">
+                <span>PET :D</span>
+            </a>
+        </div>
+    </div>
+</nav>
+<header>
+    <div class="col-md-offset-2 col-md-8 navContainer">
+        <ul class="nav nav-pills nav-justified">
+            <li>Step4. Uploading photo</li>
+        </ul>
+    </div>
+    <div class="col-md-offset-2 col-md-8 formContainer">
+        <form class="" id="imageUploadForm" action="{% url 'diagnosis:makeDiagnosis' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="diagnosisInfoBox">
+                <label for="email">My email is
+                    <input class="InlineInput" id="email" type="email" name="email" autocomplete="email" required>
+                </label>
+            </div>
+
+            <div class="diagnosisInfoBox fadeInputContainer">
+
+            </div>
+
+            <div class="userInfoBox continueButtonBox">
+
+            </div>
+        </form>
+    </div>
+
+
+
+</header>
+
+<footer>
+
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(window).keydown(function(event){
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+
+    $('#imageUploadForm').submit(function () {
+        alert('접수가 완료되었습니다.\n이메일을 통해 진단 정보를 전달해드리겠습니다. 감사합니다.');
+    });
+
+</script>
+
+<script>
+    $('#email').on('input',function(e){
+        $(".fadeInputBox>label").remove();
+
+        e.preventDefault();
+        serializedData = $("#email").serialize();
+
+        $.ajax({
+            type: 'GET',
+            url: "{% url 'diagnosis:check_email' %}",
+            data: serializedData,
+            dataType: 'json',
+            success: function(response) {
+                $('.fadeInputBox').remove();
+                $('.continueButton').remove();
+
+                var loader ='<div class="loader container-fluid"></div>';
+                $('.fadeInputContainer').append(loader);
+
+                setTimeout(function () {
+                    $('.loader').remove();
+
+                    var con ='<input class="btn btn-default continueButton" type="submit" value="등록하기">';
+                    $('.continueButtonBox').append(con);
+
+                    var i;
+                    for(i=0; i<response.length; i++){
+                        var fadeInput =
+                            '<div class="fadeInputBox"> ' +
+                            '<label for="'+response[i]+'"> ' +
+                            '<p class="dogName" text="'+response[i]+'">'+response[i]+'</p> ' +
+                            '<input class="fadeInput diagnosisImage" id="'+response[i]+'" type="file" accept="image/*" onchange="preview_image(event, this)" name="diagnosis_img_'+response[i]+'" style="position: absolute; left: -10000px;"> ' +
+                            '<input class="inlineInput petName" type="hidden" name="pet_name[]" value="'+response[i]+'"> ' +
+                            '</label><br>' +
+                            '<img class="diagnosisImage" id="'+response[i]+'Image" src="" alt="Click Name!"> ' +
+                            '</div>';
+
+                        $(".fadeInputContainer").append(fadeInput);
+                    }
+                },1000);
+            }
+        });
+    });
+
+</script>
+<script>
+    function preview_image(event, file)
+    {
+        var reader = new FileReader();
+        var dog_name = $(file).attr('id');
+
+        reader.onload = function()
+        {
+            var output = document.getElementById(dog_name+'Image');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+
+        $('.dogName').filter(function (index) {
+            return $(this).attr('text') === dog_name;
+        }).css("color","black");
+    }
+</script>
+
+</body>
+</html>

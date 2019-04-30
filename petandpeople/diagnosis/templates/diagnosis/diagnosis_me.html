@@ -1,0 +1,108 @@
+{% extends 'diagnosis/base.html' %}
+{% load static %}
+
+{% block title %} diagnosis_me {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/diagnosis_me.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-offset-2 col-md-8 formContainer">
+    <form action="{% url 'diagnosis:diagnosis_pet' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="userInfoBox">
+            <label for="email">My email is
+                <input class="InlineInput" id="email" type="email" name="email" autocomplete="email" required>
+            </label>
+        </div>
+        <div class="userInfoBox">
+            <label for="firstName">My first name is
+                <input class="InlineInput" id="firstName" type="text" name="name" autocomplete="false" required>
+            </label>
+        </div>
+        <div class="userInfoBox">
+            <label for="petsCount">I have
+                <input class="InlineInput" id="petsCount" type="number" name="pet_num" placeholder="0" autocomplete="false" min="0" value="" required>
+                dogs
+            </label>
+        </div>
+        <div class="userInfoBox fadeInputBox">
+
+        </div>
+        <div class="userInfoBox">
+            <label for="zip">And we live in zip code
+                <input class="InlineInput" id="zip" type="number" name="zip" autocomplete="false" min="0" max="99999" required>
+
+            </label>
+        </div>
+        <div class="userInfoBox">
+            <label for="address">Detail address
+                <input class="InlineInput" id="address" type="text" name="address" autocomplete="false" required>
+            </label>
+        </div>
+        <div class="userInfoBox">
+            <label for="spendingTime">And we spend
+                <input class="InlineInput" id="spendingTime" type="number" name="spending_time" placeholder="0" autocomplete="false" min="0" max="24" required>
+                hours a day together
+            </label>
+        </div>
+        <div class="userInfoBox continueButtonBox">
+            <input class="btn btn-default continueButton" type="submit" value="continue">
+        </div>
+
+    </form>
+</div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+    $(document).ready(function() {
+        var s = '안녕하세요 PET :D 입니다! 방문해 주셔서 대단히 감사드립니다 ㅎㅎ\n간단한 정보 입력하시고 소변 검사 키트지 받아가세요!';
+
+//        alert(s);
+
+        var count = $("#petsCount").val();
+
+        if(count == 1){
+            var fadeInput = '<label for="petName">My dog named <input class="fadeInput petName" id="petName" type="text" name="pet_name[]" style="width: 44%"> </label>';
+            $("div.fadeInputBox").append(fadeInput);
+        }
+
+        else{
+            for(var i=0; i<count; i++){
+                var fadeInput = '<label for="petName'+i+'">My dog named <input class="fadeInput petName" id="petName'+i+'" type="text" name="pet_name[]" style="width: 44%"> </label>';
+                $("div.fadeInputBox").append(fadeInput);
+            }
+        }
+    });
+</script>
+
+<script>
+    $( "#petsCount" ).keyup(function() {
+        $(".fadeInputBox>label").remove();
+        var count = $("#petsCount").val();
+
+        if(count == 1){
+            var fadeInput = '<label for="petName">My dog named <input class="fadeInput petName" id="petName" type="text" name="pet_name[]" style="width: 44%"> </label>';
+            $("div.fadeInputBox").append(fadeInput);
+        }
+
+        else{
+            for(var i=0; i<count; i++){
+                var fadeInput = '<label for="petName'+i+'">My dog named <input class="fadeInput petName" id="petName'+i+'" type="text" name="pet_name[]" style="width: 44%"> </label>';
+                $("div.fadeInputBox").append(fadeInput);
+            }
+        }
+
+    });
+</script>
+{% endblock %}
+
+
+

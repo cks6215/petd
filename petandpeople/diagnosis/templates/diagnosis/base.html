@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <title>{% block title %}Pet and Person{% endblock %}</title>
+
+    {% block head %}
+
+    {% endblock %}
+</head>
+
+<body>
+<header>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'diagnosis:main' %}">
+                <span>PET :D</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="col-md-offset-2 col-md-8 navContainer">
+    <ul class="nav nav-pills nav-justified">
+        <li>Step1. About me</li>
+        <li>Step2. About pet</li>
+        <li>Step3. Select Plan</li>
+    </ul>
+</div>
+
+{% block content %}
+
+{% endblock %}
+
+</header>
+
+<!--<footer>-->
+    <!--<div class="container-fluid">-->
+        <!--<span>footer</span>-->
+    <!--</div>-->
+<!--</footer>-->
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+{% block script %}
+
+{% endblock %}
+
+</body>
+</html>

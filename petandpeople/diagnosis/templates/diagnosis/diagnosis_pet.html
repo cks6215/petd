@@ -1,0 +1,462 @@
+{% extends 'diagnosis/base.html' %}
+{% load staticfiles %}
+
+{% block title %} diagnosis_pet {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/diagnosis_pet.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if pet_num != "1" %}
+<div class="col-md-offset-2 col-md-8">
+    <ul class="nav nav-tabs petNameCategory" role="tablist">
+        {% for pet in pet_name %}
+        {% if pet == p %}
+        <li role="presentation" class="petNames" style="color:black; font-weight: bold;">{{ pet }}</li>
+        {% else %}
+        <li role="presentation" class="petNames">{{ pet }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="col-md-offset-2 col-md-8 formContainer">
+    <form class="petProfileForm" action="" method="post" id="{{ p }}">
+        {% csrf_token %}
+        <div class="petInfoContainer">
+            <div class="petInfoBox petSexBox container-fluid">
+                <select name="sex" class="petSex" value="{{ pet_profile.sex }}">
+                    <option value="he">he</option>
+                    <option value="she">she</option>
+                </select>
+                <span>is</span>
+                <input class="inlineInput petAge" type="number" name="age" placeholder="0" autocomplete="false" min="1" max="99" value="{{ pet_profile.age }}" required>
+                <select name="age_unit" class="petAgeUnit" value="{{ pet_profile.age_unit }}">
+                    <option value="years">years</option>
+                    <option value="months">months</option>
+                </select>
+            </div>
+            <div class="petInfoBox petSpayedBox container-fluid ">
+                <span>he</span>
+                <select name="spayed" class="petSpayed" value="{{ pet_profile.spayed }}">
+                    <option value="yes">is</option>
+                    <option value="no">isn't</option>
+                </select>
+                <span>neutered and weighs about</span>
+                <input class="inlineInput petWeight" type="number" name="weight" placeholder="0" autocomplete="false" min="1" max="99" value="{{ pet_profile.weight }}" required>
+                <span>lbs</span>
+            </div>
+            <div class="petInfoBox container-fluid ">
+                <span>Ideal weight is</span>
+                <input class="inlineInput idealWeight" type="number" name="ideal_weight" placeholder="0" min="1" max="99" value="{{ pet_profile.ideal_weight}}" required>
+                <span>lbs</span>
+                <span>and is the</span>
+                <select name="size" class="petSize" value="{{ pet_profile.size }}" required>
+                    <option value="small">small</option>
+                    <option value="middle">middle</option>
+                    <option value="big">big</option>
+                </select>
+                <input class="inlineInput petBreed" type="text" name="breed" autocopmlete="True" placeholder="type main breed" value="{{ pet_profile.breed }}" required>
+            </div>
+            <div class="petInfoBox petBodyTypeBox container-fluid ">
+                <span>Body type...</span><br>
+                <div class="bodyTypeBox col-md-3">
+                    <div class="bodyType" value="skinny">
+                        Skinny
+                    </div>
+                </div>
+                <div class="bodyTypeBox col-md-3">
+                    <div class="bodyType" value="right">
+                        Right
+                    </div>
+                </div>
+                <div class="bodyTypeBox col-md-3">
+                    <div class="bodyType" value="rounded">
+                        Rounded
+                    </div>
+                </div>
+                <div class="bodyTypeBox col-md-3">
+                    <div class="bodyType" value="chunky">
+                        Chunky
+                    </div>
+                </div>
+                <input class="bodyTypeInput" type="hidden" name="body_type" value="{{ pet_profile.body_type }}">
+            </div>
+
+            <div class="petInfoBox petHairStyleBox container-fluid ">
+                <span>Hair Style...</span><br>
+                <div class="hairStyleBox col-md-3">
+                    <div class="hairStyle" value="no">
+                        No Hair
+                    </div>
+                </div>
+                <div class="hairStyleBox col-md-3">
+                    <div class="hairStyle" value="short">
+                        Short
+                    </div>
+                </div>
+                <div class="hairStyleBox col-md-3">
+                    <div class="hairStyle" value="medium">
+                        Medium
+                    </div>
+                </div>
+                <div class="hairStyleBox col-md-3">
+                    <div class="hairStyle" value="long">
+                        Long
+                    </div>
+                </div>
+                <input class="hairStyleInput" type="hidden" name="hair" value="{{ pet_profile.hair }}">
+            </div>
+
+            <div class="petInfoBox petActivityLevelBox container-fluid ">
+                <span>Activity level...</span><br>
+                <div class="activityLevelBox col-md-3">
+                    <div class="activityLevel" value="not">
+                        Not Very
+                    </div>
+                </div>
+                <div class="activityLevelBox col-md-3">
+                    <div class="activityLevel" value="normal">
+                        Active
+                    </div>
+                </div>
+                <div class="activityLevelBox col-md-3">
+                    <div class="activityLevel" value="very">
+                        Very Active
+                    </div>
+                </div>
+                <div class="activityLevelBox col-md-3">
+                    <div class="activityLevel" value="pro">
+                        Pro Athlete
+                    </div>
+                </div>
+                <input class="activityLevelInput" type="hidden" name="activity_level" value="{{ pet_profile.activity_level }}">
+
+            </div>
+            <div class="petInfoBox petEatingStyleBox container-fluid ">
+                <span>Eating style...</span><br>
+                <div class="eatingStyleBox col-md-3">
+                    <div class="eatingStyle" value="veryPicky">
+                        Very picky
+                    </div>
+                </div>
+                <div class="eatingStyleBox col-md-3">
+                    <div class="eatingStyle" value="canBePicky">
+                        Can be picky
+                    </div>
+                </div>
+                <div class="eatingStyleBox col-md-3">
+                    <div class="eatingStyle" value="goodEater">
+                        Good eater
+                    </div>
+                </div>
+                <div class="eatingStyleBox col-md-3">
+                    <div class="eatingStyle" value="eatAnything">
+                        Eat everything
+                    </div>
+                </div>
+                <input class="eatingStyleInput" type="hidden" name="eating_style" value="{{ pet_profile.eating_style }}">
+
+            </div>
+
+            <div class="petInfoBox petFoodTypeBox container-fluid ">
+                <span>Mainly eats</span>
+                <select name="food_type" class="petFoodType" value="{{ pet_profile.food_type }}">
+                    <option value="dry">dry food</option>
+                    <option value="wet">wet food</option>
+                    <option value="faw">raw food</option>
+                    <option value="dehydrated">dehydrated food</option>
+                    <option value="fresh">fresh food</option>
+                    <option value="homemade">homemade good</option>
+                </select>
+                <span>by</span>
+                <input type="text" placeholder="brand" name="food_brand" value="{{ pet_profile.food_brand }}" required>
+                <br>
+                <span>and gets</span>
+                <select name="treats_amount" class="treats_amount" value="{{ pet_profile.treats_amount }}">
+                    <option value="some">some</option>
+                    <option value="no">no</option>
+                    <option value="lot">a lot of</option>
+                </select>
+                <span>treats or scraps.</span>
+            </div>
+            <div class="petInfoBox petIssueBox container-fluid ">
+                <span>{{ p }}</span>
+                <select name="issue_check" class="issue_check" value="{{ pet_profile.issue_check }}">
+                    <option value="no">doesn't have</option>
+                    <option value="yes">has</option>
+                </select>
+                <span>some issues</span>
+                <div class="issueBox" id="" style="display: none;">
+                    <label class="issueLabel" for="allergies" data-name="issues">
+                        <span>Allergies</span>
+                        <input id="allergies" class="inlineInput issue" type="text" name="allergies_check" value="no" style="position: absolute; left: -10000px">
+                    </label>
+                    <label class="issueLabel" for="others" data-name="others">
+                        <span>Others</span>
+                        <input id="others" class="inlineInput issue" type="text" name="issues_check" value="no" style="position: absolute; left: -10000px">
+                    </label>
+                    <input id="otherIssues" class="inLineInput otherIssue" type="text" name="issues" value="{{ pet_profile.issues }}" placeholder="Issues" style="display: none">
+                    <!--<label class="issueLabel" for="cancer" data-name="issues">-->
+                    <!--<span>cancer</span>-->
+                    <!--<input id="cancer" class="inlineInput issue" type="checkbox" name="issues" value="cancer" style="position: absolute; left: -10000px">-->
+                    <!--</label>-->
+                    <!--<label class="issueLabel" for="joints" data-name="issues">-->
+                    <!--<span>Joints</span>-->
+                    <!--<input id="joints" class="inlineInput issue" type="checkbox" name="issues" value="joints" style="position: absolute; left: -10000px">-->
+                    <!--</label>-->
+                    <!--<label class="issueLabel" for="constipation" data-name="issues">-->
+                    <!--<span>Constipation</span>-->
+                    <!--<input id="constipation" class="inlineInput issue" type="checkbox" name="issues" value="constipation" style="position: absolute; left: -10000px">-->
+                    <!--</label>-->
+                    <!--<label class="issueLabel" for="diarrhea" data-name="issues">-->
+                    <!--<span>diarrhea</span>-->
+                    <!--<input id="diarrhea" class="inlineInput issue" type="checkbox" name="issues" value="diarrhea" style="position: absolute; left: -10000px">-->
+                    <!--</label>-->
+                </div>
+            </div>
+
+            <input class="inlineInput email" type="hidden" name="email" autocomplete="email" value="{{ email }}">
+            <input class="inlineInput firstName" type="hidden" name="name" autocomplete="false" value="{{ name }}">
+            <input class="inlineInput petsCount" type="hidden" name="pet_num" placeholder="0" autocomplete="false" min="0" value="{{ pet_num }}">
+            <input class="inlineInput zip" type="hidden" name="zip" autocomplete="false" value="{{ zip }}">
+            <input class="inlineInput address" type="hidden" name="address" autocomplete="false" value="{{ address }}">
+            <input class="inlineInput spendingTime" type="hidden" name="spending_time" placeholder="0" autocomplete="false" min="0" max="24" value="{{ spending_time }}">
+            <input class="inlineInput thisPetName" type="hidden" name="this_pet_name" value="{{ p }}">
+            {% for pet_n in pet_name %}
+            <input class="inlineInput petName" type="hidden" name="pet_name[]" value="{{ pet_n }}">
+            {% endfor %}
+
+            <div class="petInfoBox continueButtonBox container-fluid">
+                <input class="btn btn-default continueButton" type="submit" value="continue">
+            </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        var pet_list_oj = $('li.petNames');
+        var pet_list = [];
+        var i;
+
+        for(i=0; i<pet_list_oj.length; i++){
+            pet_list.push(pet_list_oj.eq(i).html());
+        }
+
+        var this_pet = $('.petProfileForm').attr('id');
+        var this_pet_index = pet_list.indexOf(this_pet);
+
+        if(pet_list[pet_list.length-1] != this_pet){
+            var next_pet = pet_list[this_pet_index+1];
+            var next_url = "/diagnosis/pet/"+ next_pet;
+            $('.petProfileForm').attr('action', next_url);
+        }
+
+        else{
+            var next_url = "/diagnosis/pet/lastone";
+            $('.petProfileForm').attr('action', next_url);
+        }
+
+
+//      button value initiating
+        for(i=0; i<$('.bodyType').length; i++){
+            if ($('.bodyType').eq(i).attr('value') == ($('.bodyTypeInput').attr('value'))){
+                $('.bodyType').eq(i).addClass('focus');
+            }
+        }
+
+        for(i=0; i<$('.hairStyle').length; i++){
+            if ($('.hairStyle').eq(i).attr('value') == ($('.hairStyleInput').attr('value'))){
+                $('.hairStyle').eq(i).addClass('focus');
+            }
+        }
+
+        for(i=0; i<$('.activityLevel').length; i++){
+            if ($('.activityLevel').eq(i).attr('value') == ($('.activityLevelInput').attr('value'))){
+                $('.activityLevel').eq(i).addClass('focus');
+            }
+        }
+
+        for(i=0; i<$('.eatingStyle').length; i++){
+            if ($('.eatingStyle').eq(i).attr('value') == ($('.eatingStyleInput').attr('value'))){
+                $('.eatingStyle').eq(i).addClass('focus');
+            }
+        }
+
+//      select value initiating
+        for(i=0; i<$('.petSex>option').length; i++){
+            if ($('.petSex>option').eq(i).attr('value') == $('.petSex').attr('value')){
+                $('.petSex>option').eq(i).attr('selected', 'selected');
+
+                s1 = 'spayed and weighs about';
+                s2 = 'neutered and weighs about';
+
+                if($('.petSex').attr('value') == 'she'){
+                    $('.petSpayedBox>span').eq(0).html('she');
+                    $('.petSpayedBox>span').eq(1).html(s1);
+                }
+
+                else{
+                    $('.petSpayedBox>span').eq(0).html('he');
+                    $('.petSpayedBox>span').eq(1).html(s2);
+                }
+
+            }
+        }
+
+        for(i=0; i<$('.petAgeUnit>option').length; i++){
+            if ($('.petAgeUnit>option').eq(i).attr('value') == $('.petAgeUnit').attr('value')){
+                $('.petAgeUnit>option').eq(i).attr('selected', 'selected');
+            }
+        }
+
+        for(i=0; i<$('.petSpayed>option').length; i++){
+            if ($('.petSpayed>option').eq(i).attr('value') == $('.petSpayed').attr('value')){
+                $('.petSpayed>option').eq(i).attr('selected', 'selected');
+            }
+        }
+
+        for(i=0; i<$('.petFoodType>option').length; i++){
+            if ($('.petFoodType>option').eq(i).attr('value') == $('.petFoodType').attr('value')){
+                $('.petFoodType>option').eq(i).attr('selected', 'selected');
+            }
+        }
+
+        for(i=0; i<$('.treats_amount>option').length; i++){
+            if ($('.treats_amount>option').eq(i).attr('value') == $('.treats_amount').attr('value')){
+                $('.treats_amount>option').eq(i).attr('selected', 'selected');
+            }
+        }
+
+        for(i=0; i<$('.issue_check>option').length; i++){
+            if ($('.issue_check>option').eq(i).attr('value') == $('.issue_check').attr('value')){
+                $('.issue_check>option').eq(i).attr('selected', 'selected');
+
+                if($('.issue_check').attr('value') == 'yes'){
+                    $('.issueBox').attr('style','display: block');
+                }
+
+                else{
+                    $('.issueBox').attr('style','display: none');
+                }
+
+            }
+        }
+
+//      checkbox value initiating
+        var iss = '{{pet_profile.issues}}';
+
+        for(i=0; i<$('.issue').length; i++){
+            if (iss.includes($('.issue').eq(i).attr('value'))){
+                $('.issueLabel').eq(i).addClass('focus');
+                $('.issue').eq(i).attr('checked', 'checked');
+            }
+        }
+
+    });
+
+</script>
+
+<script>
+    // according to select, changing text and serve extra choices
+    $('.petSex').change(function () {
+        s1 = 'spayed and weighs about';
+        s2 = 'neutered and weighs about';
+
+        if($(this).val() == 'she'){
+            $('.petSpayedBox>span').eq(0).html('she');
+            $('.petSpayedBox>span').eq(1).html(s1);
+        }
+
+        else{
+            $('.petSpayedBox>span').eq(0).html('he');
+            $('.petSpayedBox>span').eq(1).html(s2);
+        }
+
+    });
+
+    $('.issue_check').change(function () {
+        if($(this).val() == 'yes'){
+            $('.issueBox').attr('style','display: block');
+        }
+
+        else{
+            $('.issueBox').attr('style','display: none');
+        }
+    });
+</script>
+
+<script>
+
+    // click button, add or remove focus
+    $('.bodyType').click(function () {
+        $('.bodyType').removeClass('focus');
+
+        var val = $(this).attr('value');
+        $(this).addClass('focus');
+        $('.bodyTypeInput').attr('value', val);
+    });
+
+    $('.hairStyle').click(function () {
+        $('.hairStyle').removeClass('focus');
+
+        var val = $(this).attr('value');
+        $(this).addClass('focus');
+        $('.hairStyleInput').attr('value', val);
+    });
+
+    $('.activityLevel').click(function () {
+        $('.activityLevel').removeClass('focus');
+
+        var val = $(this).attr('value');
+        $(this).addClass('focus');
+        $('.activityLevelInput').attr('value', val);
+    });
+
+    $('.eatingStyle').click(function () {
+        $('.eatingStyle').removeClass('focus');
+
+        var val = $(this).attr('value');
+        $(this).addClass('focus');
+        $('.eatingStyleInput').attr('value', val);
+    });
+
+
+    // issue box work label with input
+    $('.issueBox>label').click(function (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        if ($(this).hasClass('focus')){
+            var t = $(this).attr('for');
+            $(this).removeClass('focus');
+            $('.issue').filter('#'+t).attr('value', 'no');
+
+        }
+
+        else{
+            var t = $(this).attr('for');
+
+            $(this).addClass('focus');
+            $('.issue').filter('#'+t).attr('value', 'yes');
+        }
+
+        if ($('#others').attr('value') == 'yes'){
+            $('#otherIssues').attr('style', 'display: inline-block')
+        }
+
+        else {
+            $('#otherIssues').attr('style', 'display: none')
+        }
+
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'diagnosis/base.html' %}
+{% load staticfiles %}
+
+{% block title%}diagnosis_plan{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/diagnosis_plan.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="col-md-offset-2 col-md-8">
+    {% for pet in pet_profile_li %}
+    <div class="container-fluid diagnosisCard">
+        <p>{{ pet.0 }}</p>
+        <div class="col-md-8">
+            <p>For Well-Balanced</p>
+            {% if 'fat' in pet.1 %}
+            <p>fat</p>
+
+            {% endif %}
+
+            <p>Care Point</p>
+            {% if 'toothache' in pet.1 %}
+            <span>toothache</span>
+
+            {% endif %}
+
+            {% if 'skin disease' in pet.1 %}
+            <span>skin disease</span>
+
+            {% endif %}
+
+            {% if 'joint' in pet.1 %}
+            <span>joint</span>
+
+            {% endif %}
+
+            {% if pet.3 == 1 %}
+            <span>allergies</span>
+
+            {% endif %}
+
+            <p>Proper Serving: {{ pet.2 }}g</p>
+
+
+
+        </div>
+        <div class="col-md-offset-1 col-md-3 diagnosis_">
+            <p>Result of diagnosis</p>
+            <div>
+            </div>
+            <button>Go to custom</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        var s = '이벤트 접수가 완료되었습니다.\n이메일을 통해 배송 및 유의사항을 안내해드리겠습니다!\n참여해주셔서 감사드립니다❤';
+        alert(s);
+        window.location="{% url 'diagnosis:main' %}";
+    })
+</script>
+{% endblock %}
