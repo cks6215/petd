@@ -13,10 +13,10 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="col-md-offset-4 col-md-4 eventTextBox">
-                <p class="eventText">Let's get <strong>Free Trial</strong> now!</p>
+                <p class="eventText">체험판(진단키트) <strong>무료</strong> 이벤트 진행 중입니다.</p>
             </div>
             <div class="col-md-2">
-                <a href="{% url 'diagnosis:diagnosis_me' 'eng' %}"><button class="btn btn-default navButton">Go</button></a>
+                <a href="{% url 'diagnosis:diagnosis_me' 'kor' %}"><button class="btn btn-default navButton">Go</button></a>
             </div>
             <div class="col-md-2 lang_button_box">
                 <a href="{% url 'diagnosis:main_lang' 'eng' %}"><button class="btn btn-default lang_button">eng</button></a>
@@ -30,12 +30,13 @@
             <img class="mainLogo" src="{% static 'img/mainLogo.png' %}" alt="">
         </div>
         <div class="container">
-            <p class="mainText">Healthy Promise of us</p>
+            <p class="mainText">펫과 나의 <strong>건강한</strong> 약속</p>
             <div class="container">
                 <img class="mainPageDog" src="{% static 'img/mainPageDog.png' %}" alt="">
             </div>
             <div class="container">
-                <a href="{% url 'diagnosis:diagnosis_me' 'eng' %}"><button class="btn btn-default mainBannerButton">Free Trial</button></a>
+                <a href="{% url 'diagnosis:diagnosis_me' 'kor' %}"><button class="btn btn-default mainBannerButton">체험판 받으러 가기</button></a>
+
             </div>
         </div>
 
@@ -44,7 +45,7 @@
             <!--<img class="mainPageHeart" src="{% static 'img/heart.png' %}" alt="">-->
             <!--</div>-->
             <div class="container">
-                <a href="{% url 'diagnosis:photo_upload' 'eng' %}"><button class="btn btn-default mainBannerButton goPhotoUpload">Upload Photo</button></a>
+                <a href="{% url 'diagnosis:photo_upload' 'kor' %}"><button class="btn btn-default mainBannerButton goPhotoUpload">검사 사진 올리기</button></a>
             </div>
         </div>
     </div>

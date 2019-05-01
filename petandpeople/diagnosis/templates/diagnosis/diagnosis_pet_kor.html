@@ -28,134 +28,139 @@
         {% csrf_token %}
         <div class="petInfoContainer">
             <div class="petInfoBox petSexBox container-fluid">
+                {{ p }}은
                 <select name="sex" class="petSex" value="{{ pet_profile.sex }}">
-                    <option value="he">he</option>
-                    <option value="she">she</option>
+                    <option value="he">남자</option>
+                    <option value="she">여자</option>
                 </select>
-                <span>is</span>
+
+                <span>이고</span>
                 <input class="inlineInput petAge" type="number" name="age" placeholder="0" autocomplete="false" min="1" max="99" value="{{ pet_profile.age }}" required>
                 <select name="age_unit" class="petAgeUnit" value="{{ pet_profile.age_unit }}">
-                    <option value="years">years</option>
-                    <option value="months">months</option>
+                    <option value="years">살</option>
+                    <option value="months">개월</option>
                 </select>
-            </div>
+                <span>이에요</span>
+           </div>
             <div class="petInfoBox petSpayedBox container-fluid ">
-                <span>he</span>
+                <span>그</span> 중성화를
                 <select name="spayed" class="petSpayed" value="{{ pet_profile.spayed }}">
-                    <option value="yes">is</option>
-                    <option value="no">isn't</option>
+                    <option value="yes">했어요</option>
+                    <option value="no">안했어</option>
                 </select>
-                <span>neutered and weighs about</span>
+                <span>그리고 체중은</span>
                 <input class="inlineInput petWeight" type="number" name="weight" placeholder="0" autocomplete="false" min="1" max="99" value="{{ pet_profile.weight }}" required>
-                <span>lbs</span>
+                <span>kg 입니다</span>
             </div>
             <div class="petInfoBox container-fluid ">
-                <span>Ideal weight is</span>
+                <span>목표 체중은</span>
                 <input class="inlineInput idealWeight" type="number" name="ideal_weight" placeholder="0" min="1" max="99" value="{{ pet_profile.ideal_weight}}" required>
-                <span>lbs</span>
-                <span>and is the</span>
+                <span>kg</span>
+                <span>이고</span>
                 <select name="size" class="petSize" value="{{ pet_profile.size }}" required>
-                    <option value="small">small</option>
-                    <option value="middle">middle</option>
-                    <option value="big">big</option>
+                    <option value="small">소형</option>
+                    <option value="middle">중형</option>
+                    <option value="big">대형</option>
                 </select>
-                <input class="inlineInput petBreed" type="text" name="breed" autocopmlete="True" placeholder="type main breed" value="{{ pet_profile.breed }}" required>
+                견으로 견종은
+                <input class="inlineInput petBreed" type="text" name="breed" autocopmlete="True" placeholder="견" value="{{ pet_profile.breed }}" required>
+                입니다
             </div>
             <div class="petInfoBox petBodyTypeBox container-fluid ">
-                <span>Body type...</span><br>
+                <span>체형은...</span><br>
                 <div class="bodyTypeBox col-md-3">
                     <div class="bodyType" value="skinny">
-                        Skinny
+                        마름
                     </div>
                 </div>
                 <div class="bodyTypeBox col-md-3">
                     <div class="bodyType" value="right">
-                        Right
+                        적정
                     </div>
                 </div>
                 <div class="bodyTypeBox col-md-3">
                     <div class="bodyType" value="rounded">
-                        Rounded
+                        통통함
                     </div>
                 </div>
                 <div class="bodyTypeBox col-md-3">
                     <div class="bodyType" value="chunky">
-                        Chunky
+                        뚱뚱함
                     </div>
                 </div>
                 <input class="bodyTypeInput" type="hidden" name="body_type" value="{{ pet_profile.body_type }}">
             </div>
 
             <div class="petInfoBox petHairStyleBox container-fluid ">
-                <span>Hair Style...</span><br>
+                <span>털 길이는...</span><br>
                 <div class="hairStyleBox col-md-3">
                     <div class="hairStyle" value="no">
-                        No Hair
+                        털 없음
                     </div>
                 </div>
                 <div class="hairStyleBox col-md-3">
                     <div class="hairStyle" value="short">
-                        Short
+                        단모
                     </div>
                 </div>
                 <div class="hairStyleBox col-md-3">
                     <div class="hairStyle" value="medium">
-                        Medium
+                        중모
                     </div>
                 </div>
                 <div class="hairStyleBox col-md-3">
                     <div class="hairStyle" value="long">
-                        Long
+                        장모
                     </div>
                 </div>
                 <input class="hairStyleInput" type="hidden" name="hair" value="{{ pet_profile.hair }}">
             </div>
 
             <div class="petInfoBox petActivityLevelBox container-fluid ">
-                <span>Activity level...</span><br>
+                <span>활동량은...</span><br>
                 <div class="activityLevelBox col-md-3">
                     <div class="activityLevel" value="not">
-                        Not Very
+                        잘 안움직여요
                     </div>
                 </div>
                 <div class="activityLevelBox col-md-3">
                     <div class="activityLevel" value="normal">
-                        Active
+                        적당히 움직여요
                     </div>
                 </div>
                 <div class="activityLevelBox col-md-3">
                     <div class="activityLevel" value="very">
-                        Very Active
+                        활발해요
                     </div>
                 </div>
                 <div class="activityLevelBox col-md-3">
                     <div class="activityLevel" value="pro">
-                        Pro Athlete
+                        운동 선수에요
                     </div>
                 </div>
                 <input class="activityLevelInput" type="hidden" name="activity_level" value="{{ pet_profile.activity_level }}">
 
             </div>
             <div class="petInfoBox petEatingStyleBox container-fluid ">
-                <span>Eating style...</span><br>
+                <span>식습관...</span><br>
                 <div class="eatingStyleBox col-md-3">
                     <div class="eatingStyle" value="veryPicky">
-                        Very picky
+                        엄청 까다로워요
                     </div>
                 </div>
                 <div class="eatingStyleBox col-md-3">
                     <div class="eatingStyle" value="canBePicky">
-                        Can be picky
+                        적당히 까다로워요
                     </div>
                 </div>
                 <div class="eatingStyleBox col-md-3">
                     <div class="eatingStyle" value="goodEater">
-                        Good eater
+                        대체로 잘먹어요
                     </div>
                 </div>
                 <div class="eatingStyleBox col-md-3">
                     <div class="eatingStyle" value="eatAnything">
-                        Eat everything
+                        아무거나 다 먹어요
                     </div>
                 </div>
                 <input class="eatingStyleInput" type="hidden" name="eating_style" value="{{ pet_profile.eating_style }}">
@@ -163,43 +168,45 @@
             </div>
 
             <div class="petInfoBox petFoodTypeBox container-fluid ">
-                <span>Mainly eats</span>
+                <span>주식은</span>
                 <select name="food_type" class="petFoodType" value="{{ pet_profile.food_type }}">
-                    <option value="dry">dry food</option>
-                    <option value="wet">wet food</option>
-                    <option value="faw">raw food</option>
-                    <option value="dehydrated">dehydrated food</option>
-                    <option value="fresh">fresh food</option>
-                    <option value="homemade">homemade good</option>
+                    <option value="dry">건식</option>
+                    <option value="wet">습식</option>
+                    <option value="faw">생식</option>
+                    <option value="dehydrated">탈수분 사료</option>
+                    <option value="fresh">자연식</option>
+                    <option value="homemade">핸드메이드</option>
                 </select>
-                <span>by</span>
-                <input type="text" placeholder="brand" name="food_brand" value="{{ pet_profile.food_brand }}" required>
+                <span>이고 브랜드는</span>
+                <input type="text" placeholder="브랜드" name="food_brand" value="{{ pet_profile.food_brand }}" required>
+                입니다.
                 <br>
-                <span>and gets</span>
+                <span>그리고 간식을</span>
                 <select name="treats_amount" class="treats_amount" value="{{ pet_profile.treats_amount }}">
-                    <option value="some">some</option>
-                    <option value="no">no</option>
-                    <option value="lot">a lot of</option>
+                    <option value="some">조금</option>
+                    <option value="no">안</option>
+                    <option value="lot">많이</option>
                 </select>
-                <span>treats or scraps.</span>
+                <span>먹어요.</span>
             </div>
             <div class="petInfoBox petIssueBox container-fluid ">
                 <span>{{ p }}</span>
+                의 건강 특이사항은
                 <select name="issue_check" class="issue_check" value="{{ pet_profile.issue_check }}">
-                    <option value="no">doesn't have</option>
-                    <option value="yes">has</option>
+                    <option value="no">없어요</option>
+                    <option value="yes">있어요</option>
                 </select>
-                <span>some issues</span>
+                <span></span>
                 <div class="issueBox" id="" style="display: none;">
                     <label class="issueLabel" for="allergies" data-name="issues">
-                        <span>Allergies</span>
+                        <span>알러지</span>
                         <input id="allergies" class="inlineInput issue" type="text" name="allergies_check" value="no" style="position: absolute; left: -10000px">
                     </label>
                     <label class="issueLabel" for="others" data-name="others">
-                        <span>Others</span>
+                        <span>기타</span>
                         <input id="others" class="inlineInput issue" type="text" name="issues_check" value="no" style="position: absolute; left: -10000px">
                     </label>
-                    <input id="otherIssues" class="inLineInput otherIssue" type="text" name="issues" value="{{ pet_profile.issues }}" placeholder="Issues" style="display: none">
+                    <input id="otherIssues" class="inLineInput otherIssue" type="text" name="issues" value="{{ pet_profile.issues }}" placeholder="특이사항" style="display: none">
                     <!--<label class="issueLabel" for="cancer" data-name="issues">-->
                     <!--<span>cancer</span>-->
                     <!--<input id="cancer" class="inlineInput issue" type="checkbox" name="issues" value="cancer" style="position: absolute; left: -10000px">-->
@@ -231,7 +238,7 @@
             {% endfor %}
 
             <div class="petInfoBox continueButtonBox container-fluid">
-                <input class="btn btn-default continueButton" type="submit" value="continue">
+                <input class="btn btn-default continueButton" type="submit" value="계속">
             </div>
         </div>
 
@@ -256,12 +263,12 @@
 
         if(pet_list[pet_list.length-1] != this_pet){
             var next_pet = pet_list[this_pet_index+1];
-            var next_url = "/diagnosis/pet/"+ next_pet +'/eng';
+            var next_url = "/diagnosis/pet/"+ next_pet + '/kor';
             $('.petProfileForm').attr('action', next_url);
         }
 
         else{
-            var next_url = "/diagnosis/pet/lastone/" + 'eng';
+            var next_url = "/diagnosis/pet/lastone/" + 'kor';
             $('.petProfileForm').attr('action', next_url);
         }
 
@@ -372,13 +379,13 @@
         s2 = 'neutered and weighs about';
 
         if($(this).val() == 'she'){
-            $('.petSpayedBox>span').eq(0).html('she');
-            $('.petSpayedBox>span').eq(1).html(s1);
+            $('.petSpayedBox>span').eq(0).html('그녀');
+//            $('.petSpayedBox>span').eq(1).html(s1);
         }
 
         else{
-            $('.petSpayedBox>span').eq(0).html('he');
-            $('.petSpayedBox>span').eq(1).html(s2);
+            $('.petSpayedBox>span').eq(0).html('그');
+//            $('.petSpayedBox>span').eq(1).html(s2);
         }
 
     });

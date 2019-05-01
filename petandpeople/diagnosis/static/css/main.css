@@ -28,7 +28,23 @@ nav{
     font-weight: bold;
 }
 
-.navButton:hover, .navButton:focus{
+.lang_button_box{
+    text-align: right;
+}
+
+.lang_button{
+    border: none;
+    background-color: #FC5649;
+    opacity: 0.6;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.navButton:hover, .navButton:focus,
+.lang_button:hover, .lang_button:focus{
     background-color: #FC5649;
 }
 

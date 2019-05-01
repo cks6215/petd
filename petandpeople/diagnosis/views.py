@@ -7,14 +7,31 @@ from .models import MyProfile, PetProfile, Diagnosis
 # Create your views here.
 
 def main(request):
-    return render(request, 'diagnosis/main.html', {})
+    return render(request, 'diagnosis/main_kor.html')
+
+def main_lang(request, lang):
+    if lang == 'kor':
+        return render(request, 'diagnosis/main_kor.html')
+
+    elif lang == 'eng':
+        return render(request, 'diagnosis/main.html')
+
+    else:
+        return render(request, 'diagnosis/main.html')
 
 
-def diagnosis_me(request):
-    return render(request, 'diagnosis/diagnosis_me.html', {})
+def diagnosis_me(request, lang):
+    if lang == 'kor':
+        return render(request, 'diagnosis/diagnosis_me_kor.html')
+
+    elif lang == 'eng':
+        return render(request, 'diagnosis/diagnosis_me.html')
+
+    else:
+        return render(request, 'diagnosis/diagnosis_me.html')
 
 
-def diagnosis_pet(request):
+def diagnosis_pet(request, lang):
     if request.method == 'POST':
         tmp_email = request.POST.get('email')
         tmp_name = request.POST.get('name')
@@ -51,7 +68,14 @@ def diagnosis_pet(request):
                            'pet_profile':pet_profile_query[0],
                            }
 
-                return render(request, 'diagnosis/diagnosis_pet.html', context)
+                if lang == 'kor':
+                    return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+                elif lang == 'eng':
+                    return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+                else:
+                    return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
 
             else:
                 context = {'email': tmp_email,
@@ -62,7 +86,15 @@ def diagnosis_pet(request):
                            'spending_time': tmp_spending_time,
                            'p': tmp_pet,
                            }
-                return render(request, 'diagnosis/diagnosis_pet.html', context)
+
+                if lang == 'kor':
+                    return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+                elif lang == 'eng':
+                    return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+                else:
+                    return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
 
         else:
             MyProfile.objects.create(
@@ -85,13 +117,27 @@ def diagnosis_pet(request):
                        'p': tmp_pet,
                        }
 
-            return render(request, 'diagnosis/diagnosis_pet.html', context)
+            if lang == 'kor':
+                return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+            elif lang == 'eng':
+                return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+            else:
+                return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
 
     else:
-        return render(request, 'diagnosis/diagnosis_pet.html', {})
+        if lang == 'kor':
+            return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+        elif lang == 'eng':
+            return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+        else:
+            return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
 
 
-def check_pet(request, next_pet):
+def check_pet(request, next_pet, lang):
     if request.method == 'POST':
         tmp_email = request.POST.get('email')
         tmp_name = request.POST.get('name')
@@ -145,7 +191,7 @@ def check_pet(request, next_pet):
             )
             if tmp_pet_name[-1] == tmp_this_pet_name:
 
-                return redirect('diagnosis:diagnosis_plan', email=tmp_email)
+                return redirect('diagnosis:diagnosis_plan', email=tmp_email, lang=lang)
 
             else:
                 next_pet_profile = PetProfile.objects.filter(owner=my_profile, name=next_pet)
@@ -162,7 +208,15 @@ def check_pet(request, next_pet):
                                'pet_profile':next_pet_profile[0],
                                }
 
-                    return render(request, 'diagnosis/diagnosis_pet.html', context)
+                    if lang == 'kor':
+                        return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+                    elif lang == 'eng':
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+                    else:
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
 
                 else:
                     context = {'email': tmp_email,
@@ -174,7 +228,15 @@ def check_pet(request, next_pet):
                                'p': next_pet,
                                }
 
-                    return render(request, 'diagnosis/diagnosis_pet.html', context)
+                    if lang == 'kor':
+                        return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+                    elif lang == 'eng':
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+                    else:
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
 
         else:
             PetProfile.objects.create(
@@ -201,7 +263,7 @@ def check_pet(request, next_pet):
 
             if tmp_pet_name[-1] == tmp_this_pet_name:
 
-                return redirect('diagnosis:diagnosis_plan', email=tmp_email)
+                return redirect('diagnosis:diagnosis_plan', email=tmp_email, lang=lang)
 
             else:
                 next_pet_profile = PetProfile.objects.filter(owner=my_profile, name=next_pet)
@@ -217,7 +279,15 @@ def check_pet(request, next_pet):
                                'pet_profile': next_pet_profile[0],
                                }
 
-                    return render(request, 'diagnosis/diagnosis_pet.html', context)
+                    if lang == 'kor':
+                        return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+                    elif lang == 'eng':
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+                    else:
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
 
                 else:
                     context = {'email': tmp_email,
@@ -229,13 +299,29 @@ def check_pet(request, next_pet):
                                'p': next_pet,
                                }
 
-                    return render(request, 'diagnosis/diagnosis_pet.html', context)
+                    if lang == 'kor':
+                        return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+                    elif lang == 'eng':
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+                    else:
+                        return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
 
     else:
-        return render(request, 'diagnosis/diagnosis_pet.html', {})
+        if lang == 'kor':
+            return render(request, 'diagnosis/diagnosis_pet_kor.html', context)
+
+        elif lang == 'eng':
+            return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
+
+        else:
+            return render(request, 'diagnosis/diagnosis_pet_eng.html', context)
 
 
-def diagnosis_plan(request, email):
+
+def diagnosis_plan(request, email, lang):
     my_profile = get_object_or_404(MyProfile, email=email)
     pet_profiles = PetProfile.objects.filter(owner=my_profile)
 
@@ -302,11 +388,26 @@ def diagnosis_plan(request, email):
         'pet_profile_li':pet_profile_li,
     }
 
-    return render(request, 'diagnosis/diagnosis_plan.html', context)
+    if lang == 'kor':
+        return render(request, 'diagnosis/diagnosis_plan_kor.html', context)
 
-def photo_upload(request):
+    elif lang == 'eng':
+        return render(request, 'diagnosis/diagnosis_plan.html', context)
 
-    return render(request, 'diagnosis/photo_upload.html', {})
+    else:
+        return render(request, 'diagnosis/diagnosis_plan.html', context)
+
+
+def photo_upload(request, lang):
+
+    if lang == 'kor':
+        return render(request, 'diagnosis/photo_upload_kor.html')
+
+    elif lang == 'eng':
+        return render(request, 'diagnosis/photo_upload.html')
+
+    else:
+        return render(request, 'diagnosis/photo_upload.html')
 
 
 def check_email(request):
@@ -327,7 +428,7 @@ def check_email(request):
         return HttpResponse(json.dump(response), content_type='application/json')
 
 
-def makeDiagnosis(request):
+def makeDiagnosis(request, lang):
     if request.method == 'POST':
         tmp_email = request.POST.get('email')
         tmp_pet_name = request.POST.getlist('pet_name[]')
@@ -346,8 +447,7 @@ def makeDiagnosis(request):
             except:
                 continue
 
-
-        return redirect('diagnosis:main')
+        return redirect('diagnosis:main_lang', lang=lang)
 
     else:
-        return redirect('diagnosis:main')
+        return redirect('diagnosis:main_lang', lang=lang)

@@ -27,10 +27,10 @@
         </ul>
     </div>
     <div class="col-md-offset-2 col-md-8 formContainer">
-        <form class="" id="imageUploadForm" action="{% url 'diagnosis:makeDiagnosis' 'eng' %}" method="POST" enctype="multipart/form-data">
+        <form class="" id="imageUploadForm" action="{% url 'diagnosis:makeDiagnosis' 'kor' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="diagnosisInfoBox">
-                <label for="email">My email is
+                <label for="email">이메일
                     <input class="InlineInput" id="email" type="email" name="email" autocomplete="email" required>
                 </label>
             </div>

@@ -11,47 +11,52 @@
 {% block content %}
 
 <div class="col-md-offset-2 col-md-8 formContainer">
-    <form action="{% url 'diagnosis:diagnosis_pet' 'eng' %}" method="POST">
+    <form action="{% url 'diagnosis:diagnosis_pet' 'kor' %}" method="POST">
         {% csrf_token %}
 
         <div class="userInfoBox">
-            <label for="email">My email is
+            <label for="email">이메일
                 <input class="InlineInput" id="email" type="email" name="email" autocomplete="email" required>
             </label>
         </div>
         <div class="userInfoBox">
-            <label for="firstName">My first name is
+            <label for="firstName">제 이름은
                 <input class="InlineInput" id="firstName" type="text" name="name" autocomplete="false" required>
+                이고
             </label>
         </div>
         <div class="userInfoBox">
-            <label for="petsCount">I have
+            <label for="petsCount">강아지를
                 <input class="InlineInput" id="petsCount" type="number" name="pet_num" placeholder="0" autocomplete="false" min="0" value="" required>
-                dogs
+                마리 키우고 있습니다
             </label>
         </div>
         <div class="userInfoBox fadeInputBox">
 
         </div>
+
         <div class="userInfoBox">
-            <label for="zip">And we live in zip code
-                <input class="InlineInput" id="zip" type="number" name="zip" autocomplete="false" min="0" max="99999" required>
+            <label for="zip">그리고 저희는
+                <input class="InlineInput" id="zip" type="number" name="zip" autocomplete="false" min="0" max="99999" placeholder="우편번호" required>
 
             </label>
         </div>
+
         <div class="userInfoBox">
-            <label for="address">Detail address
-                <input class="InlineInput" id="address" type="text" name="address" autocomplete="false" required>
+            <label for="address">
+                <input class="InlineInput" id="address" type="text" name="address" autocomplete="false" placeholder="세부 주소" required>
+                에 살고 있어요
             </label>
         </div>
+
         <div class="userInfoBox">
-            <label for="spendingTime">And we spend
+            <label for="spendingTime">저희는 하루에 보통
                 <input class="InlineInput" id="spendingTime" type="number" name="spending_time" placeholder="0" autocomplete="false" min="0" max="24" required>
-                hours a day together
+                시간을 함께해요
             </label>
         </div>
         <div class="userInfoBox continueButtonBox">
-            <input class="btn btn-default continueButton" type="submit" value="continue">
+            <input class="btn btn-default continueButton" type="submit" value="계속">
         </div>
 
     </form>
@@ -70,13 +75,13 @@
         var count = $("#petsCount").val();
 
         if(count == 1){
-            var fadeInput = '<label for="petName">My dog named <input class="fadeInput petName" id="petName" type="text" name="pet_name[]" style="width: 44%"> </label>';
+            var fadeInput = '<label for="petName">강아지 이름 <input class="fadeInput petName" id="petName" type="text" name="pet_name[]" style="width: 44%"> </label>';
             $("div.fadeInputBox").append(fadeInput);
         }
 
         else{
             for(var i=0; i<count; i++){
-                var fadeInput = '<label for="petName'+i+'">My dog named <input class="fadeInput petName" id="petName'+i+'" type="text" name="pet_name[]" style="width: 44%"> </label>';
+                var fadeInput = '<label for="petName'+i+'">강아지 이름 <input class="fadeInput petName" id="petName'+i+'" type="text" name="pet_name[]" style="width: 44%"> </label>';
                 $("div.fadeInputBox").append(fadeInput);
             }
         }
@@ -89,13 +94,13 @@
         var count = $("#petsCount").val();
 
         if(count == 1){
-            var fadeInput = '<label for="petName">My dog named <input class="fadeInput petName" id="petName" type="text" name="pet_name[]" style="width: 44%"> </label>';
+            var fadeInput = '<label for="petName">강아지 이름 <input class="fadeInput petName" id="petName" type="text" name="pet_name[]" style="width: 44%"> </label>';
             $("div.fadeInputBox").append(fadeInput);
         }
 
         else{
             for(var i=0; i<count; i++){
-                var fadeInput = '<label for="petName'+i+'">My dog named <input class="fadeInput petName" id="petName'+i+'" type="text" name="pet_name[]" style="width: 44%"> </label>';
+                var fadeInput = '<label for="petName'+i+'">강아지 이름 <input class="fadeInput petName" id="petName'+i+'" type="text" name="pet_name[]" style="width: 44%"> </label>';
                 $("div.fadeInputBox").append(fadeInput);
             }
         }

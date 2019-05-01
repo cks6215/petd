@@ -21,11 +21,13 @@ app_name = 'diagnosis'
 
 urlpatterns = [
     path('', views.main, name='main'),
-    path('diagnosis/me', views.diagnosis_me, name='diagnosis_me'),
-    path('diagnosis/pet', views.diagnosis_pet, name='diagnosis_pet'),
-    path('diagnosis/pet/<next_pet>', views.check_pet, name='check_pet'),
-    path('diagnosis/plan/<email>', views.diagnosis_plan, name='diagnosis_plan'),
-    path('diagnosis/photo_upload', views.photo_upload, name='photo_upload'),
+    path('main/<lang>', views.main_lang, name='main_lang'),
+
+    path('diagnosis/me/<lang>', views.diagnosis_me, name='diagnosis_me'),
+    path('diagnosis/pet/<lang>', views.diagnosis_pet, name='diagnosis_pet'),
+    path('diagnosis/pet/<next_pet>/<lang>', views.check_pet, name='check_pet'),
+    path('diagnosis/plan/<email>/<lang>', views.diagnosis_plan, name='diagnosis_plan'),
+    path('diagnosis/photo_upload/<lang>', views.photo_upload, name='photo_upload'),
     path('diagnosis/check_email', views.check_email, name='check_email'),
-    path('diagnosis/makeDiagnosis', views.makeDiagnosis, name='makeDiagnosis'),
+    path('diagnosis/makeDiagnosis/<lang>', views.makeDiagnosis, name='makeDiagnosis'),
 ]
