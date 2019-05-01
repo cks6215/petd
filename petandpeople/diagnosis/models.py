@@ -64,23 +64,23 @@ class PetProfile(models.Model):
 
 
 
-#
-# def path_and_rename(path):
-#     def wrapper(instance, filename):
-#         ext = filename.split('.')[-1]
-#         dt = datetime.datetime.now()
-#
-#         # get filename
-#         new_filename = '{}_{}.{}'.format(dt.date(), filename, ext)
-#
-#         # return the whole path to the file
-#         return os.path.join(path, new_filename)
-#     return wrapper
+
+def path_and_rename(path):
+    def wrapper(instance, filename):
+        ext = filename.split('.')[-1]
+        dt = datetime.datetime.now()
+
+        # get filename
+        new_filename = '{}_{}.{}'.format(dt.date(), filename, ext)
+
+        # return the whole path to the file
+        return os.path.join(path, new_filename)
+    return wrapper
 
 class Diagnosis(models.Model):
     owner = models.ForeignKey(MyProfile, on_delete=models.CASCADE)
     pet_name = models.CharField(max_length=40, default='-')
-    diagnosis_pic = models.FileField(null=True, blank=True, upload_to='diagnosis_image')
+    diagnosis_pic = models.FileField(null=True, blank=True, upload_to=path_and_rename('diagnosis_image'))
     pub_date = models.DateTimeField(max_length=30, default=timezone.now())
 
 

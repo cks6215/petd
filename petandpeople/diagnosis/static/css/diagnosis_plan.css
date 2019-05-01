@@ -5,4 +5,84 @@
 
 .diagnosisCard{
     text-align: center;
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid lightgray;
+}
+
+.carePointBox{
+    margin-top: 0.5rem;
+}
+
+.carePointImg{
+    background-color: #FC5649;
+    opacity: 0.7;
+    border-radius: 100px;
+    height: 8rem;
+    width: 8rem;
+}
+
+.carePointImg>img{
+    width: 50%;
+    margin: 2rem;
+}
+
+.planTitleBox>p{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.carePoint>p{
+    margin-right: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.dietPlanBox{
+    margin-top: 2rem;
+}
+
+.dietPlanTitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.dietPlan{
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: 15rem;
+    padding: 2rem;
+    border: 1px solid #FC5649;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dietPlan:hover{
+    background-color: #FC5649;
+    color: white;
+    opacity: 0.7;
+}
+
+.diagnosisResultBox{
+    margin-top: 3rem;
+}
+
+.diagnosisResultTitle>p{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.diagnosisCardButton{
+    background-color: #FC5649;
+    opacity: 0.7;
+    border: none;
+    color: white;
+    width: 13rem;
+    font-weight: bold;
+    height: 4rem;
+}
+
+.diagnosisCardButton:hover, .diagnosisCardButton:focus{
+    background-color: #FC5649;
+    opacity: 0.7;
 }
