@@ -66,10 +66,18 @@
                 <p>allergies</p>
             </div>
             {% endif %}
-
         </div>
 
-        <div class="dietPlanBox container-fluid">
+        <div class="diagnosisResultBox container-fluid">
+            <div class="diagnosisResultTitle">
+                <p>More nutrients requirement for {{ pet.0 }}</p>
+            </div>
+            <div class="diagnosisResult">
+                <button class="btn btn-default diagnosisCardButton">More</button>
+            </div>
+        </div>
+
+        <div class="dietPlanBox container-fluid" style="display: none;">
             <p class="dietPlanTitle">{{ pet.0 }}'s Well-Balanced Diet</p>
             <div class="dietPlan container">
                 <strong><span>Beef</span></strong><br><br>
@@ -101,16 +109,7 @@
                 <span>Salmon oil</span><br>
                 <span>Falxseed oil</span><br>
             </div>
-        </div>
-        <p>Profit serving per: {{ pet.2 }}kcal</p>
-
-        <div class="diagnosisResultBox container-fluid">
-            <div class="diagnosisResultTitle">
-                <p>More nutrients requirement for {{ pet.0 }}</p>
-            </div>
-            <div class="diagnosisResult">
-                <button class="btn btn-default diagnosisCardButton">More</button>
-            </div>
+            <p>Profit serving per: {{ pet.2 }}kcal</p>
         </div>
 
     </div>
@@ -125,10 +124,16 @@
 
 {% block script %}
 <script>
-//    $(document).ready(function () {
-//        var s = '이벤트 접수가 완료되었습니다.\n이메일을 통해 배송 및 유의사항을 안내해드리겠습니다!\n참여해주셔서 감사드립니다❤';
-//        alert(s);
-//        window.location="{% url 'diagnosis:main_lang' 'kor' %}";
-//    })
+    //    $(document).ready(function () {
+    //        var s = '이벤트 접수가 완료되었습니다.\n이메일을 통해 배송 및 유의사항을 안내해드리겠습니다!\n참여해주셔서 감사드립니다❤';
+    //        alert(s);
+    //        window.location="{% url 'diagnosis:main_lang' 'kor' %}";
+    //    })
+
+    $('.diagnosisCardButton').click(function () {
+        var s = '이벤트 접수가 완료되었습니다.\n이메일을 통해 배송 및 유의사항을 안내해드리겠습니다!\n참여해주셔서 감사드립니다❤';
+        alert(s);
+        window.location="{% url 'diagnosis:main_lang' 'kor' %}";
+    })
 </script>
 {% endblock %}

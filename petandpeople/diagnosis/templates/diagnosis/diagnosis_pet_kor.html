@@ -69,24 +69,40 @@
             <div class="petInfoBox petBodyTypeBox container-fluid ">
                 <span>체형은...</span><br>
                 <div class="bodyTypeBox col-md-3">
+                    <div class="bodyTypeImageBox">
+                        <img class="bodyTypeImage" src="{% static 'img/skinny_type.png' %}" alt="">
+                    </div>
                     <div class="bodyType" value="skinny">
                         마름
                     </div>
+
                 </div>
                 <div class="bodyTypeBox col-md-3">
+                    <div class="bodyTypeImageBox">
+                        <img class="bodyTypeImage" src="{% static 'img/right_type.png' %}" alt="">
+                    </div>
                     <div class="bodyType" value="right">
                         적정
                     </div>
+
                 </div>
                 <div class="bodyTypeBox col-md-3">
+                    <div class="bodyTypeImageBox">
+                        <img class="bodyTypeImage" src="{% static 'img/rounded_type.png' %}" alt="">
+                    </div>
                     <div class="bodyType" value="rounded">
                         통통함
                     </div>
+
                 </div>
                 <div class="bodyTypeBox col-md-3">
+                    <div class="bodyTypeImageBox">
+                        <img class="bodyTypeImage" src="{% static 'img/chunky_type.png' %}" alt="">
+                    </div>
                     <div class="bodyType" value="chunky">
                         뚱뚱함
                     </div>
+
                 </div>
                 <input class="bodyTypeInput" type="hidden" name="body_type" value="{{ pet_profile.body_type }}">
             </div>

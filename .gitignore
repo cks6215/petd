@@ -4,3 +4,5 @@
 *.sql
 *.sqlite
 *.sqlite3
+
+settings.py

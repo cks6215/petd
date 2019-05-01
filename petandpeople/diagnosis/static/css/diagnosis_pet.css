@@ -69,6 +69,11 @@ select::-ms-expand {
     padding: 0;
 }
 
+.bodyTypeImage{
+    width: 15rem;
+    height: 13rem;
+}
+
 .petBodyTypeBox, .petActivityLevelBox, .petEatingStyleBox, .petHairStyleBox{
     margin-top: 4rem;
 }

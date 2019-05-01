@@ -69,7 +69,25 @@
 
         </div>
 
-        <div class="dietPlanBox container-fluid">
+        <div class="diagnosisResultBox container-fluid">
+            <div class="diagnosisResultTitle">
+                <p>
+                    이벤트에 참여해주셔서 감사드립니다!!<br>
+                    감사의 마음을 담아 저희 PET :D에서<br><br>
+                    {{ pet.0 }}의 건강상태와 필요 영양소를 진단 할 수 있는<br>
+                    PET :D 소변 검사 키트를 제공해드리고 있습니다<br><br>
+                    해당 이벤트는 5월 20일 종료예정이며<br>
+                    응모 폭주의 경우 일찍 마감될 수 있습니다<br><br>
+                    상품은 6월 1일 일괄 배송될 예정으로<br>
+                    기입하신 이메일을 통해 배송 및 유의사항을 안내드리겠습니다<br>
+                </p>
+            </div>
+            <div class="diagnosisResult">
+                <button class="btn btn-default diagnosisCardButton">응모하기</button>
+            </div>
+        </div>
+
+        <div class="dietPlanBox container-fluid" style="display: none;">
             <p class="dietPlanTitle">{{ pet.0 }}를 위한 균형 식단</p>
             <div class="dietPlan container">
                 <strong><span>소고기</span></strong><br><br>
@@ -101,17 +119,9 @@
                 <span>연어오일</span><br>
                 <span>아마씨유</span><br>
             </div>
+            <p>1회 적정 제공량: {{ pet.2 }}kcal</p>
         </div>
-        <p>1회 적정 제공량: {{ pet.2 }}kcal</p>
 
-        <div class="diagnosisResultBox container-fluid">
-            <div class="diagnosisResultTitle">
-                <p>{{ pet.0 }}에게 더 필요한 영양소</p>
-            </div>
-            <div class="diagnosisResult">
-                <button class="btn btn-default diagnosisCardButton">알아보기</button>
-            </div>
-        </div>
 
     </div>
     {% endfor %}
@@ -130,6 +140,10 @@
 //        alert(s);
 //        window.location="{% url 'diagnosis:main_lang' 'kor' %}";
 //    })
-    $()
+    $('.diagnosisCardButton').click(function () {
+        var s = '이벤트 접수가 완료되었습니다.\n이메일을 통해 배송 및 유의사항을 안내해드리겠습니다!\n참여해주셔서 감사드립니다❤';
+        alert(s);
+        window.location="{% url 'diagnosis:main_lang' 'kor' %}";
+    })
 </script>
 {% endblock %}
